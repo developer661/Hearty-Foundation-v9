@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hearthy Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-50">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center">
+                    <span class="text-2xl font-bold text-gray-900">Hearthy Foundation</span>
+                </a>
+                <div class="flex gap-4">
+                    <a href="/" class="px-4 py-2 text-gray-700 hover:text-red-600">Home</a>
+                    <a href="/opportunities" class="px-4 py-2 text-gray-700 hover:text-red-600">Opportunities</a>
+                    <a href="/contact" class="px-4 py-2 text-gray-700 hover:text-red-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Volunteer Dashboard</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-medium mb-2">Total Opportunities</h3>
+                <p class="text-3xl font-bold text-gray-900">15</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-medium mb-2">Active Volunteers</h3>
+                <p class="text-3xl font-bold text-gray-900">87</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-medium mb-2">Urgent Needs</h3>
+                <p class="text-3xl font-bold text-red-600">10</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+            <div class="space-y-4">
+                <div class="border-l-4 border-red-600 pl-4 py-2">
+                    <p class="font-semibold text-gray-900">New urgent need posted</p>
+                    <p class="text-sm text-gray-600">Medical supplies needed at Warsaw Children's Hospital</p>
+                </div>
+                <div class="border-l-4 border-green-600 pl-4 py-2">
+                    <p class="font-semibold text-gray-900">Volunteer registration approved</p>
+                    <p class="text-sm text-gray-600">Welcome to the team!</p>
+                </div>
+                <div class="border-l-4 border-blue-600 pl-4 py-2">
+                    <p class="font-semibold text-gray-900">Upcoming event</p>
+                    <p class="text-sm text-gray-600">Community cleanup scheduled for next Saturday</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearthy Foundation - Volunteer Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-white">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/logo-podstawowe.png" alt="Hearthy Foundation" class="h-12">
+                    <span class="ml-3 text-2xl font-bold text-gray-900">Hearthy Foundation</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/opportunities" class="px-4 py-2 text-gray-700 hover:text-red-600">Opportunities</a>
+                    <a href="/dashboard" class="px-4 py-2 text-gray-700 hover:text-red-600">Dashboard</a>
+                    <a href="/contact" class="px-4 py-2 text-gray-700 hover:text-red-600">Contact</a>
+                    <a href="/volunteer-registration" class="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Join Us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="relative h-screen flex items-center justify-center bg-gradient-to-br from-red-50 to-white">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+                    Make a Difference Today
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    Join our community of dedicated volunteers and help us create lasting impact in children's lives.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/opportunities" class="px-10 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 text-lg font-bold shadow-lg">
+                        Explore Opportunities
+                    </a>
+                    <a href="/contact" class="px-10 py-4 bg-white text-red-600 border-2 border-red-600 rounded-lg hover:bg-red-50 text-lg font-bold">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white" th:if="${urgentNeeds != null and !urgentNeeds.isEmpty()}">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Urgent Needs</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div th:each="need : ${urgentNeeds}" class="bg-white border border-red-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-bold text-gray-900" th:text="${need.title}">Need Title</h3>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-semibold rounded-full">URGENT</span>
+                        </div>
+                        <p class="text-gray-600 mb-4" th:text="${need.description}">Description</p>
+                        <div class="space-y-2 text-sm text-gray-500">
+                            <p><strong>Category:</strong> <span th:text="${need.category}">Category</span></p>
+                            <p><strong>Institution:</strong> <span th:text="${need.institutionName}">Institution</span></p>
+                            <p><strong>Location:</strong> <span th:text="${need.location}">Location</span></p>
+                        </div>
+                        <a href="/volunteer-registration" class="mt-4 block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+                            Help Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Why Volunteer With Us?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Make an Impact</h3>
+                        <p class="text-gray-600">Create real change in children's lives through meaningful volunteer work.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Join a Community</h3>
+                        <p class="text-gray-600">Connect with like-minded volunteers who share your passion for helping others.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Flexible Opportunities</h3>
+                        <p class="text-gray-600">Find volunteer opportunities that fit your schedule and interests.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Ready to Make a Difference?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    Join our community of dedicated volunteers and help us create lasting impact in children's lives.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/opportunities" class="px-10 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 font-bold text-lg shadow-lg">
+                        Explore Opportunities
+                    </a>
+                    <a href="/contact" class="px-10 py-4 bg-white text-red-600 border-2 border-red-600 rounded-lg hover:bg-red-50 font-bold text-lg">
+                        Request Information
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Hearthy Foundation</h3>
+                    <p class="text-gray-400">
+                        Empowering children through education and volunteer support since 2020.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/opportunities" class="hover:text-white">Volunteer Opportunities</a></li>
+                        <li><a href="/dashboard" class="hover:text-white">Dashboard</a></li>
+                        <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-400">
+                        Email: contact@hearthy.org<br>
+                        Phone: +48 123 456 789<br>
+                        Warsaw, Poland
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 Hearthy Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
